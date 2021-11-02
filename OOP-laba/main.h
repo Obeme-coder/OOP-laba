@@ -19,11 +19,13 @@ void show_teachers();
 void show_students();
 
 class person {
+private:
+	int phone_number;
 public:
+	static int count;
 	int code;
 	string name;
 	int age;
-	int phone_number;
 	int gender;
 	person();
 	person(int code, string name, int age, int phone_number, int gender);

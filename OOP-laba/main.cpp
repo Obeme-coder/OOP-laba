@@ -12,9 +12,15 @@ void stf(ofstream& file, int x) {
 
 #pragma region person
 
-person::person() { }
+int person::count = 0;
+
+person::person() {
+	count++;
+}
 
 person::person(int code, string name, int age, int phone_number, int gender) {
+	count++;
+	cout << "person count: " << count << endl;
 	this->code = code;
 	this->name = name;
 	this->age = age;
@@ -31,11 +37,11 @@ person::person(person& p) {
 }
 
 person::~person() {
+	count--;
+	cout << "person count: " << count << endl;
 }
 
-
 #pragma endregion
-
 
 #pragma region teacher
 
@@ -254,7 +260,6 @@ void student::print() {
 int main() {
 
 	person people[] = { person(1, "John", 17, 123123, 1), person(2, "Ana", 17, 12341243, 2), person() };
-	people[2] = person(people[1]);
 
 	/*while (true) {
 		cls();
